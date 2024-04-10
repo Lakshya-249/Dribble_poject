@@ -36,7 +36,7 @@ const Logintemplate = () => {
     if (field && terms) {
       dispatch(addUser(formdata));
       const response = await fetch(
-        `/api/getuser?username=${formdata.username}&email=${formdata.email}`
+        `https://profileprojectbanckend-production.up.railway.app/api/getuser?username=${formdata.username}&email=${formdata.email}`
       );
       const data = await response.json();
       console.log(response.status);

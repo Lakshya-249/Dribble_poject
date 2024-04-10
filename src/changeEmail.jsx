@@ -9,16 +9,19 @@ function ChangeEmail() {
   const navigate = useNavigate();
   const handleClick = async () => {
     if (email.trim() === "") return;
-    const response = await fetch("/api/emailUpdate", {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        newEmail: email,
-        username: selector.username,
-      }),
-    });
+    const response = await fetch(
+      "https://profileprojectbanckend-production.up.railway.app/api/emailUpdate",
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          newEmail: email,
+          username: selector.username,
+        }),
+      }
+    );
     const data = await response.json();
     console.log(data);
     if (response.status === 200) {

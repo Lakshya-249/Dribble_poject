@@ -18,13 +18,16 @@ const Finalpage = () => {
   useEffect(() => {
     const change = async () => {
       // console.log(selector);
-      const response = await fetch("/api/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(selector),
-      });
+      const response = await fetch(
+        "https://profileprojectbanckend-production.up.railway.app/api/register",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(selector),
+        }
+      );
       const data = await response.json();
       // const response2 = await fetch(`/api/getdetails/${selector.username}`);
       // const data2 = await response2.json();
