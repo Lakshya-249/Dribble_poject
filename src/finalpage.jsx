@@ -29,9 +29,11 @@ const Finalpage = () => {
         }
       );
       const data = await response.json();
-      // const response2 = await fetch(`/api/getdetails/${selector.username}`);
-      // const data2 = await response2.json();
-      setimage(selector.image);
+      const response2 = await fetch(
+        `https://profileprojectbanckend-production.up.railway.app/api/getdetails/${selector.username}`
+      );
+      const data2 = await response2.json();
+      setimage(data2.image);
       // console.log(data);
     };
     change();
@@ -82,7 +84,7 @@ const Finalpage = () => {
         <p>
           Please verify your email address. We've sent a confirmation email to:
         </p>
-        <p className="text-black font-bold">account1234@gmail.design.com</p>
+        <p className="text-black font-bold">{selector.email}</p>
         <p>Click the confirmation link in that email to begin using Dribble.</p>
         <p>
           Didn't receive the email? Check Spam folder, it may have been caught
